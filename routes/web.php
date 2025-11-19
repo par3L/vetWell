@@ -56,6 +56,7 @@ Route::middleware('auth')->prefix('dashboard')->name('dashboard.')->group(functi
     Route::post('/book-appointment', [DashboardController::class, 'storeBooking'])->name('store-booking');
     Route::put('/bookings/{appointment}', [DashboardController::class, 'updateBooking'])->name('update-booking');
     Route::delete('/bookings/{appointment}/cancel', [DashboardController::class, 'cancelBooking'])->name('cancel-booking');
+    // route untuk pembayaran transaksi (dummy payment)
     Route::post('/transaction/{transaction}/pay', [DashboardController::class, 'payTransaction'])->name('pay-transaction');
 });
 
