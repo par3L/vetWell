@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Layanan Kami - VetWell Clinic</title>
     <meta name="description" content="Layanan veteriner lengkap dari konsultasi hingga bedah. Perawatan terbaik untuk hewan peliharaan Anda.">
+    <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}">
     
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=nunito:300,400,500,600,700|poppins:400,500,600,700|quicksand:400,500,600,700" rel="stylesheet">

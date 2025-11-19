@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>VetWell Clinic - Memberikan Yang Terbaik Untuk Peliharaan Anda</title>
     <meta name="description" content="Professional veterinary services with compassionate care for your beloved pets. 24/7 emergency care, expert veterinarians, and modern facilities.">
+    <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}">
     
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">

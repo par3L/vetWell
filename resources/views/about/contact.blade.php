@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Hubungi Kami - VetWell Clinic</title>
-    <meta name="description" content="Hubungi VetWell Clinic untuk pertanyaan, kritik, atau saran. Kami siap membantu Anda 24/7.">
+    <meta name="description" content="Hubungi VetWell Clinic untuk informasi lebih lanjut atau konsultasi. Tim kami siap membantu Anda.">
+    <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}">
     
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=nunito:300,400,500,600,700|poppins:400,500,600,700|quicksand:400,500,600,700" rel="stylesheet">

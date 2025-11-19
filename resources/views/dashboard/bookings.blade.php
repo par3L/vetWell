@@ -152,18 +152,21 @@
                         <div class="flex flex-row lg:flex-col gap-2 lg:min-w-[140px]">
                             @if($appointment->status === 'pending')
                                 <!-- Edit button for pending appointments -->
+                                @php
+                                    $editData = [
+                                        'id' => $appointment->id,
+                                        'pet_id' => $appointment->pet_id,
+                                        'pet_name' => $appointment->pet->name,
+                                        'doctor_id' => $appointment->doctor_id,
+                                        'doctor_name' => $appointment->doctor->user->name,
+                                        'appointment_date' => $appointment->appointment_time->format('Y-m-d'),
+                                        'appointment_time' => $appointment->appointment_time->format('H:i'),
+                                        'client_notes' => $appointment->client_notes,
+                                        'service_ids' => $appointment->services->filter(fn($s) => !$s->pivot->added_by_doctor)->pluck('id')->toArray()
+                                    ];
+                                @endphp
                                 <button 
-                                    onclick='openEditModal(@json([
-                                        "id" => $appointment->id,
-                                        "pet_id" => $appointment->pet_id,
-                                        "pet_name" => $appointment->pet->name,
-                                        "doctor_id" => $appointment->doctor_id,
-                                        "doctor_name" => $appointment->doctor->name,
-                                        "appointment_date" => $appointment->appointment_time->format("Y-m-d"),
-                                        "appointment_time" => $appointment->appointment_time->format("H:i"),
-                                        "client_notes" => $appointment->client_notes,
-                                        "service_ids" => $appointment->services->filter(fn($s) => !$s->pivot->added_by_doctor)->pluck("id")->toArray()
-                                    ]))'
+                                    onclick='openEditModal(@json($editData))'
                                     class="flex-1 lg:flex-none px-4 py-2 bg-[#4A9FD8] hover:bg-[#2D7A6E] text-white font-semibold rounded-lg transition-all duration-300 text-sm flex items-center justify-center gap-2"
                                 >
                                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -238,7 +241,7 @@
 </div>
 
 <!-- Edit Modal -->
-<div id="editModal" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
+<div id="editModal" class="hidden fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8">
         <div class="flex items-center justify-between mb-6">
             <div>
@@ -413,10 +416,14 @@
         
         // Show modal
         document.getElementById('editModal').classList.remove('hidden');
+        // Disable body scroll
+        document.body.style.overflow = 'hidden';
     }
 
     function closeEditModal() {
         document.getElementById('editModal').classList.add('hidden');
+        // Enable body scroll
+        document.body.style.overflow = '';
     }
     
     // Close modal when clicking outside

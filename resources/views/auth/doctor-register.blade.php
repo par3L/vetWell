@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Registrasi Dokter - VetWell Clinic</title>
     <meta name="description" content="Daftar sebagai dokter hewan di VetWell Clinic dan bergabung dengan tim profesional kami.">
+    <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}">
     
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=nunito:300,400,500,600,700|poppins:400,500,600,700|quicksand:400,500,600,700" rel="stylesheet">
