@@ -359,7 +359,6 @@
                 </div>
             </div>
 
-            <!-- Additional Notes -->
             <div>
                 <label for="edit_client_notes" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                     Catatan Tambahan <span class="text-[#5A7A76] font-normal text-xs">(Opsional)</span>
@@ -416,14 +415,10 @@
         
         // Show modal
         document.getElementById('editModal').classList.remove('hidden');
-        // Disable body scroll
-        document.body.style.overflow = 'hidden';
     }
 
     function closeEditModal() {
         document.getElementById('editModal').classList.add('hidden');
-        // Enable body scroll
-        document.body.style.overflow = '';
     }
     
     // Close modal when clicking outside
