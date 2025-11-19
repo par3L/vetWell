@@ -54,7 +54,7 @@
                             </svg>
                             Buat Janji
                         </a>
-                        <a href="#emergency" class="group inline-flex items-center justify-center gap-2 border-2 border-[#2D7A6E] hover:bg-[#2D7A6E] text-[#2D7A6E] hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300">
+                        <a href="{{ route('emergency') }}" class="group inline-flex items-center justify-center gap-2 border-2 border-[#2D7A6E] hover:bg-[#2D7A6E] text-[#2D7A6E] hover:text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300">
                             <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                             </svg>
@@ -317,7 +317,7 @@
                             <h3 class="text-2xl font-heading font-bold text-[#FF8F5B] group-hover:text-[#FFB088] transition-colors duration-300">Kepercayaan</h3>
                         </div>
                         <p class="text-sm leading-relaxed text-white/90">
-                            Membangun hubungan yang langgeng melalui kejujuran dan keandalan.
+                            Membangun hubungan berdasar kejujuran dan keandalan.
                         </p>
                     </div>
                 </div>
@@ -335,10 +335,10 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                                 </svg>
                             </div>
-                            <h3 class="text-2xl font-heading font-bold text-[#FF8F5B] group-hover:text-[#FFB088] transition-colors duration-300">Kasih Sayang</h3>
+                            <h3 class="text-2xl font-heading font-bold text-[#FF8F5B] group-hover:text-[#FFB088] transition-colors duration-300">Kepedulian</h3>
                         </div>
                         <p class="text-sm leading-relaxed text-white/90">
-                            Memperlakukan setiap hewan peliharaan dengan cinta, perhatian, dan rasa hormat.
+                            Memperlakukan setiap hewan peliharaan dengan penuh cinta.
                         </p>
                     </div>
                 </div>
@@ -418,7 +418,7 @@
                         </svg>
                         Buat Janji
                     </a>
-                    <a href="#contact" class="group inline-flex items-center justify-center gap-2 bg-[#2D7A6E] hover:bg-[#1F5951] text-white px-10 py-5 rounded-xl font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 text-lg">
+                    <a href="{{ route('contact') }}" class="group inline-flex items-center justify-center gap-2 bg-[#2D7A6E] hover:bg-[#1F5951] text-white px-10 py-5 rounded-xl font-semibold transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105 text-lg">
                         <svg class="w-6 h-6 transition-transform group-hover:scale-110" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
