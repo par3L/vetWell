@@ -13,7 +13,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="antialiased font-sans text-neutral-800 bg-gradient-to-br from-[#F0F8F6] via-white to-[#FFF5EC]">
-    <!-- Background Decorations -->
+    <!-- decor -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
         <div class="absolute top-0 left-0 w-96 h-96 bg-[#2D7A6E]/10 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#FFB088]/10 rounded-full blur-3xl"></div>
@@ -22,7 +22,7 @@
 
     <div class="relative min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="w-full max-w-md">
-            <!-- Logo/Brand -->
+            <!-- logo -->
             <div class="text-center mb-8">
                 <a href="{{ route('landing') }}" class="inline-block group">
                     <img src="{{ asset('logo.png') }}" alt="VetWell Clinic Logo" class="h-20 w-auto mx-auto mb-4 transition-transform duration-300 group-hover:scale-110">
@@ -31,9 +31,9 @@
                 <p class="text-[#5A7A76]">Login untuk mengakses akun Anda</p>
             </div>
 
-            <!-- Login Card -->
+            <!-- card -->
             <div class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border-2 border-[#E5F0ED] p-8">
-                <!-- Success Message -->
+                <!-- if success -->
                 @if(session('success'))
                     <div class="mb-6 p-4 bg-[#EDFAF2] border border-[#52C77B] text-[#1A3A35] rounded-xl flex items-start gap-3">
                         <svg class="w-5 h-5 text-[#52C77B] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -43,7 +43,7 @@
                     </div>
                 @endif
 
-                <!-- Error Messages -->
+                <!-- error -->
                 @if($errors->any())
                     <div class="mb-6 p-4 bg-[#FDEAEA] border border-[#E85D5D] text-[#D44545] rounded-xl">
                         <div class="flex items-start gap-3">
@@ -62,7 +62,7 @@
                 <form method="POST" action="{{ route('login.post') }}" class="space-y-6">
                     @csrf
 
-                    <!-- Email -->
+                    <!-- email -->
                     <div>
                         <label for="email" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                             Email
@@ -85,7 +85,7 @@
                         </div>
                     </div>
 
-                    <!-- Password -->
+                    <!-- password -->
                     <div>
                         <label for="password" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                             Password
@@ -107,7 +107,7 @@
                         </div>
                     </div>
 
-                    <!-- Remember Me -->
+                    <!-- remember -->
                     <div class="flex items-center justify-between">
                         <div class="flex items-center">
                             <input 
@@ -122,7 +122,7 @@
                         </div>
                     </div>
 
-                    <!-- Submit Button -->
+                    <!-- submit button -->
                     <button 
                         type="submit"
                         class="w-full bg-gradient-to-r from-[#2D7A6E] to-[#1F5951] hover:from-[#1F5951] hover:to-[#164239] text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] flex items-center justify-center gap-2"
@@ -134,7 +134,7 @@
                     </button>
                 </form>
 
-                <!-- Divider -->
+                <!-- div -->
                 <div class="relative my-6">
                     <div class="absolute inset-0 flex items-center">
                         <div class="w-full border-t border-[#E5F0ED]"></div>
@@ -144,7 +144,7 @@
                     </div>
                 </div>
 
-                <!-- Register Link -->
+                <!-- ref register -->
                 <div class="text-center">
                     <p class="text-sm text-[#5A7A76]">
                         Belum punya akun?
@@ -155,7 +155,7 @@
                 </div>
             </div>
 
-            <!-- Back to Home -->
+            <!-- home -->
             <div class="mt-6 text-center">
                 <a href="{{ route('landing') }}" class="inline-flex items-center gap-2 text-sm text-[#5A7A76] hover:text-[#2D7A6E] transition-colors duration-300">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">

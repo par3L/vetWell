@@ -13,7 +13,7 @@
     @vite('resources/css/app.css')
 </head>
 <body class="antialiased font-sans text-neutral-800 bg-gradient-to-br from-[#F0F8F6] via-white to-[#FFF5EC]">
-    <!-- Background Decorations -->
+    <!-- decor -->
     <div class="fixed inset-0 overflow-hidden pointer-events-none">
         <div class="absolute top-0 left-0 w-96 h-96 bg-[#2D7A6E]/10 rounded-full blur-3xl"></div>
         <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#4A9FD8]/10 rounded-full blur-3xl"></div>
@@ -22,7 +22,7 @@
 
     <div class="relative min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
         <div class="w-full max-w-3xl">
-            <!-- Logo/Brand -->
+            <!-- logo/brand -->
             <div class="text-center mb-8">
                 <a href="{{ route('landing') }}" class="inline-block group">
                     <img src="{{ asset('logo.png') }}" alt="VetWell Clinic Logo" class="h-20 w-auto mx-auto mb-4 transition-transform duration-300 group-hover:scale-110">
@@ -31,9 +31,9 @@
                 <p class="text-[#5A7A76]">Daftar sebagai dokter hewan profesional</p>
             </div>
 
-            <!-- Register Card -->
+            <!-- card -->
             <div class="bg-white/80 backdrop-blur-sm rounded-3xl shadow-xl border-2 border-[#E5F0ED] p-8">
-                <!-- Error Messages -->
+                <!-- if error -->
                 @if($errors->any())
                     <div class="mb-6 p-4 bg-[#FDEAEA] border border-[#E85D5D] text-[#D44545] rounded-xl">
                         <div class="flex items-start gap-3">
@@ -54,7 +54,7 @@
                 <form method="POST" action="{{ route('doctor.register.post') }}" enctype="multipart/form-data" class="space-y-5">
                     @csrf
 
-                    <!-- Informasi Pribadi -->
+                    <!-- form info pribadi -->
                     <div class="border-b border-[#E5F0ED] pb-4">
                         <h3 class="text-lg font-bold text-[#1A3A35] mb-4 flex items-center gap-2">
                             <svg class="w-5 h-5 text-[#2D7A6E]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -64,7 +64,7 @@
                         </h3>
 
                         <div class="grid md:grid-cols-2 gap-4">
-                            <!-- Name -->
+                            <!-- name -->
                             <div>
                                 <label for="name" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                     Nama Lengkap <span class="text-[#E85D5D]">*</span>
@@ -80,7 +80,7 @@
                                 >
                             </div>
 
-                            <!-- Email -->
+                            <!-- email -->
                             <div>
                                 <label for="email" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                     Email <span class="text-[#E85D5D]">*</span>
@@ -96,7 +96,7 @@
                                 >
                             </div>
 
-                            <!-- Phone -->
+                            <!-- no -->
                             <div>
                                 <label for="phone" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                     Nomor Telepon <span class="text-[#E85D5D]">*</span>
@@ -112,7 +112,7 @@
                                 >
                             </div>
 
-                            <!-- No Registrasi Dokter -->
+                            <!-- noreg -->
                             <div>
                                 <label for="no_reg_dokter" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                     No. Registrasi Dokter <span class="text-[#E85D5D]">*</span>
@@ -130,7 +130,7 @@
                         </div>
                     </div>
 
-                    <!-- Informasi Profesional -->
+                    <!-- info profesi -->
                     <div class="border-b border-[#E5F0ED] pb-4">
                         <h3 class="text-lg font-bold text-[#1A3A35] mb-4 flex items-center gap-2">
                             <svg class="w-5 h-5 text-[#4A9FD8]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -140,7 +140,7 @@
                         </h3>
 
                         <div class="grid md:grid-cols-2 gap-4">
-                            <!-- Position -->
+                            <!-- posisi -->
                             <div>
                                 <label for="position" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                     Posisi <span class="text-[#E85D5D]">*</span>
@@ -156,7 +156,7 @@
                                 </select>
                             </div>
 
-                            <!-- Spesialisasi -->
+                            <!-- spesialisasi -->
                             <div>
                                 <label for="spesialisasi" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                     Spesialisasi <span class="text-[#E85D5D]">*</span>
@@ -172,7 +172,7 @@
                                 >
                             </div>
 
-                            <!-- Experience Years -->
+                            <!-- pengalaman -->
                             <div>
                                 <label for="experience_years" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                     Pengalaman (Tahun) <span class="text-[#E85D5D]">*</span>
@@ -189,7 +189,7 @@
                                 >
                             </div>
 
-                            <!-- Photo -->
+                            <!-- photo -->
                             <div>
                                 <label for="photo" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                     Foto Profil <span class="text-[#5A7A76] font-normal text-xs">(Opsional)</span>
@@ -228,7 +228,7 @@
                             </script>
                         </div>
 
-                        <!-- Bio -->
+                        <!-- bio -->
                         <div class="mt-4">
                             <label for="bio" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                 Bio / Deskripsi Singkat <span class="text-[#5A7A76] font-normal text-xs">(Opsional)</span>
@@ -243,7 +243,7 @@
                         </div>
                     </div>
 
-                    <!-- Password -->
+                    <!-- password -->
                     <div>
                         <h3 class="text-lg font-bold text-[#1A3A35] mb-4 flex items-center gap-2">
                             <svg class="w-5 h-5 text-[#52C77B]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -253,7 +253,7 @@
                         </h3>
 
                         <div class="grid md:grid-cols-2 gap-4">
-                            <!-- Password -->
+                            <!-- password -->
                             <div>
                                 <label for="password" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                     Password <span class="text-[#E85D5D]">*</span>
@@ -269,7 +269,7 @@
                                 <p class="mt-1 text-xs text-[#5A7A76]">Minimal 8 karakter</p>
                             </div>
 
-                            <!-- Password Confirmation -->
+                            <!-- pasword2 -->
                             <div>
                                 <label for="password_confirmation" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                                     Konfirmasi Password <span class="text-[#E85D5D]">*</span>
@@ -286,7 +286,7 @@
                         </div>
                     </div>
 
-                    <!-- Submit Button -->
+                    <!-- submit -->
                     <button 
                         type="submit"
                         class="w-full bg-gradient-to-r from-[#4A9FD8] to-[#2D7A6E] hover:from-[#2D7A6E] hover:to-[#1F5951] text-white font-bold py-4 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-[1.02] flex items-center justify-center gap-2"
@@ -298,7 +298,7 @@
                     </button>
                 </form>
 
-                <!-- Divider -->
+                <!-- div -->
                 <div class="relative my-6">
                     <div class="absolute inset-0 flex items-center">
                         <div class="w-full border-t border-[#E5F0ED]"></div>
@@ -308,7 +308,7 @@
                     </div>
                 </div>
 
-                <!-- Login Link -->
+                <!-- ref login -->
                 <div class="text-center">
                     <p class="text-sm text-[#5A7A76]">
                         Sudah punya akun?
@@ -325,7 +325,7 @@
                 </div>
             </div>
 
-            <!-- Back to Home -->
+            <!-- home -->
             <div class="mt-6 text-center">
                 <a href="{{ route('landing') }}" class="inline-flex items-center gap-2 text-sm text-[#5A7A76] hover:text-[#2D7A6E] transition-colors duration-300">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
