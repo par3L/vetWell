@@ -251,7 +251,7 @@
                         </div>
                         <h3 class="text-xl font-heading font-bold text-[#1A3A35] mb-2 text-center">Penilaian Awal</h3>
                         <p class="text-[#5A7A76] text-center">
-                            Tim kami akan menilai kondisi hewan peliharaan Anda
+                            Kami akan memeriksa kondisi pasien
                         </p>
                     </div>
                 </div>
