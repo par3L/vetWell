@@ -1,3 +1,5 @@
+<img width="450" height="228" alt="logo2" src="https://github.com/user-attachments/assets/13bb5436-b105-4459-ba1b-7240d176cdd1" />
+
 # Sistem Manajemen Klinik VetWell
 
 sistem manajemen klinik hewan yang komprehensif dibangun dengan laravel 11, dilengkapi dengan penjadwalan janji temu, manajemen hewan peliharaan, rekam medis, manajemen profil pengguna, dan restful api terintegrasi.
