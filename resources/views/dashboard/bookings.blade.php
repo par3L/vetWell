@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="space-y-6">
-    <!-- Filter/Status Tabs -->
+    <!-- filter -->
     <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED]">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
@@ -21,13 +21,13 @@
         </div>
     </div>
 
-    <!-- Appointments List -->
+    <!-- list -->
     @if($appointments->count() > 0)
         <div class="space-y-4">
             @foreach($appointments as $appointment)
                 <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED] hover:shadow-lg transition-all duration-300">
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                        <!-- Appointment Info -->
+                        <!-- info -->
                         <div class="flex-1">
                             <div class="flex items-start gap-4 mb-4">
                                 <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#2D7A6E] to-[#4A9FD8] flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
@@ -148,10 +148,10 @@
                             </div>
                         </div>
 
-                        <!-- Action Buttons -->
+                        <!-- action btn -->
                         <div class="flex flex-row lg:flex-col gap-2 lg:min-w-[140px]">
                             @if($appointment->status === 'pending')
-                                <!-- Edit button for pending appointments -->
+                                <!-- edit/pending -->
                                 @php
                                     $editData = [
                                         'id' => $appointment->id,
@@ -177,7 +177,7 @@
                             @endif
 
                             @if(in_array($appointment->status, ['pending', 'confirmed']))
-                                <!-- Cancel button -->
+                                <!-- cancel  -->
                                 <form method="POST" action="{{ route('dashboard.cancel-booking', $appointment) }}" 
                                     onsubmit="return confirm('Apakah Anda yakin ingin membatalkan janji temu ini?')" 
                                     class="flex-1 lg:flex-none">
@@ -216,12 +216,12 @@
             @endforeach
         </div>
 
-        <!-- Pagination -->
+        <!-- pagination -->
         <div class="mt-6">
             {{ $appointments->links() }}
         </div>
     @else
-        <!-- Empty State -->
+        <!-- kosong -->
         <div class="bg-white rounded-2xl p-12 border-2 border-[#E5F0ED] text-center">
             <div class="w-24 h-24 rounded-full bg-[#F0F8F6] flex items-center justify-center mx-auto mb-6">
                 <svg class="w-12 h-12 text-[#5A7A76]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -240,7 +240,7 @@
     @endif
 </div>
 
-<!-- Edit Modal -->
+<!-- edit -->
 <div id="editModal" class="hidden fixed inset-0 backdrop-blur-sm z-50 flex items-center justify-center p-4">
     <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto p-8">
         <div class="flex items-center justify-between mb-6">
@@ -259,7 +259,7 @@
             @csrf
             @method('PUT')
             
-            <!-- Pet Selection -->
+            <!-- pet seleciton -->
             <div>
                 <label for="edit_pet_id" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                     Pilih Hewan Peliharaan <span class="text-[#E85D5D]">*</span>
@@ -279,7 +279,7 @@
                 </select>
             </div>
 
-            <!-- Service Selection (Multiple) -->
+            <!-- checkbox service -->
             <div>
                 <label class="block text-sm font-semibold text-[#1A3A35] mb-3">
                     Layanan yang Diperlukan <span class="text-[#E85D5D]">*</span>
@@ -301,11 +301,11 @@
                     @endforeach
                 </div>
                 <p class="mt-2 text-xs text-[#5A7A76]">
-                    💡 Layanan yang ditambahkan dokter tidak dapat dihapus
+                    Layanan yang ditambahkan dokter tidak dapat dihapus
                 </p>
             </div>
 
-            <!-- Doctor Selection -->
+            <!-- select doc -->
             <div>
                 <label for="edit_doctor_id" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                     Dokter Pilihan <span class="text-[#E85D5D]">*</span>
@@ -318,7 +318,7 @@
                 >
                     <option value="">Pilih dokter</option>
                     <option value="random" class="font-semibold text-[#2D7A6E]">
-                        🎲 Pilih Secara Acak / Bebas Dipilihkan
+                        Pilih Secara Acak / Bebas Dipilihkan
                     </option>
                     <option disabled>──────────</option>
                     @foreach($doctors ?? [] as $doctor)
@@ -329,7 +329,7 @@
                 </select>
             </div>
 
-            <!-- Date & Time Selection -->
+            <!-- date time picker -->
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
                     <label for="edit_appointment_date" class="block text-sm font-semibold text-[#1A3A35] mb-2">
@@ -385,25 +385,23 @@
     </div>
 </div>
 
+<!-- js  script -->
 <script>
     function openEditModal(appointment) {
-        // Set form action
+        // form action
         const form = document.getElementById('editForm');
         form.action = `/dashboard/bookings/${appointment.id}`;
         
-        // Populate form fields
         document.getElementById('edit_pet_id').value = appointment.pet_id;
         document.getElementById('edit_doctor_id').value = appointment.doctor_id;
         document.getElementById('edit_appointment_date').value = appointment.appointment_date;
         document.getElementById('edit_appointment_time').value = appointment.appointment_time;
         document.getElementById('edit_client_notes').value = appointment.client_notes || '';
         
-        // Uncheck all service checkboxes first
         document.querySelectorAll('.edit-service-checkbox').forEach(checkbox => {
             checkbox.checked = false;
         });
         
-        // Check services that are selected
         if (appointment.service_ids && appointment.service_ids.length > 0) {
             appointment.service_ids.forEach(serviceId => {
                 const checkbox = document.querySelector(`.edit-service-checkbox[value="${serviceId}"]`);
@@ -412,8 +410,6 @@
                 }
             });
         }
-        
-        // Show modal
         document.getElementById('editModal').classList.remove('hidden');
     }
 
@@ -421,7 +417,6 @@
         document.getElementById('editModal').classList.add('hidden');
     }
     
-    // Close modal when clicking outside
     document.getElementById('editModal')?.addEventListener('click', function(e) {
         if (e.target === this) {
             closeEditModal();

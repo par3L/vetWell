@@ -15,7 +15,7 @@
             @csrf
             @method('PUT')
 
-            <!-- Nama Hewan -->
+            <!-- nama -->
             <div>
                 <label for="name" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                     Nama Hewan <span class="text-[#E85D5D]">*</span>
@@ -33,7 +33,7 @@
                 @enderror
             </div>
 
-            <!-- Jenis dan Ras -->
+            <!-- jenis/ras -->
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
                     <label for="species" class="block text-sm font-semibold text-[#1A3A35] mb-2">
@@ -70,7 +70,7 @@
                 </div>
             </div>
 
-            <!-- Tanggal Lahir dan Jenis Kelamin -->
+            <!-- tgl lahir/gender -->
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
                     <label for="dob" class="block text-sm font-semibold text-[#1A3A35] mb-2">
@@ -110,17 +110,17 @@
                 </div>
             </div>
 
-            <!-- Foto Hewan (Opsional saat edit) -->
+            <!-- foto (opt) -->
             <div>
                 <label for="photo" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                     Foto Hewan <span class="text-[#5A7A76] font-normal text-xs">(Opsional - kosongkan jika tidak ingin mengubah)</span>
                 </label>
                 
-                <!-- Foto Saat Ini -->
+                <!-- cur foto -->
                 @if($pet->photo)
                     <div class="mb-4 p-4 bg-[#F0F8F6] rounded-xl">
                         <p class="text-sm text-[#5A7A76] mb-2">Foto saat ini:</p>
-                        <img src="{{ asset($pet->photo) }}" alt="{{ $pet->name }}" class="w-32 h-32 object-cover rounded-lg">
+                        <img src="{{ Storage::url($pet->photo) }}" alt="{{ $pet->name }}" class="w-32 h-32 object-cover rounded-lg">
                     </div>
                 @endif
                 
@@ -153,7 +153,7 @@
                 @enderror
             </div>
 
-            <!-- Tombol Aksi -->
+            <!-- action btn -->
             <div class="flex flex-col sm:flex-row gap-4 pt-4">
                 <button 
                     type="submit"
@@ -193,7 +193,6 @@
         }
     }
 
-    // Drag and drop functionality
     const dropzone = document.getElementById('photo-dropzone');
     const fileInput = document.getElementById('photo');
 

@@ -5,12 +5,12 @@
 
 @section('content')
 <div class="space-y-6">
-    <!-- Statistics Cards -->
+    <!-- stat card -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED] hover:shadow-lg transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
-                    <p class="text-sm font-medium text-[#5A7A76] mb-1">Total Janji Temu</p>
+                    <p class="text-sm font-medium text-[#5A7A76] mb-1">Total Booking</p>
                     <p class="text-3xl font-bold text-[#1A3A35]">{{ $stats['total_appointments'] }}</p>
                 </div>
                 <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-[#4A9FD8]/20 to-[#4A9FD8]/10 flex items-center justify-center">
@@ -64,13 +64,13 @@
         </div>
     </div>
 
-    <!-- Appointments List -->
+    <!-- list booking -->
     @if($appointments->count() > 0)
         <div class="space-y-4">
             @foreach($appointments as $appointment)
                 <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED] hover:shadow-lg transition-all duration-300">
                     <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-                        <!-- Appointment Info -->
+                        <!-- detail -->
                         <div class="flex-1">
                             <div class="flex items-start gap-4 mb-4">
                                 <div class="w-16 h-16 rounded-xl bg-gradient-to-br from-[#2D7A6E] to-[#4A9FD8] flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
@@ -118,7 +118,7 @@
                             </div>
                         </div>
 
-                        <!-- Action Buttons -->
+                        <!-- action btn -->
                         <div class="flex flex-row lg:flex-col gap-2 lg:min-w-[160px]">
                             <a href="{{ route('doctor.appointment.show', $appointment) }}" 
                                 class="flex-1 lg:flex-none px-4 py-2 bg-[#4A9FD8] hover:bg-[#2D7A6E] text-white font-semibold rounded-lg transition-all duration-300 text-sm flex items-center justify-center gap-2">
@@ -147,12 +147,12 @@
             @endforeach
         </div>
 
-        <!-- Pagination -->
+        <!-- pagination -->
         <div class="mt-6">
             {{ $appointments->links() }}
         </div>
     @else
-        <!-- Empty State -->
+        <!-- no bookings -->
         <div class="bg-white rounded-2xl p-12 border-2 border-[#E5F0ED] text-center">
             <div class="w-24 h-24 rounded-full bg-[#F0F8F6] flex items-center justify-center mx-auto mb-6">
                 <svg class="w-12 h-12 text-[#5A7A76]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -14,7 +14,7 @@
         <form method="POST" action="{{ route('pets.store') }}" enctype="multipart/form-data" class="space-y-6">
             @csrf
 
-            <!-- Nama Hewan -->
+            <!-- nama -->
             <div>
                 <label for="name" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                     Nama Hewan <span class="text-[#E85D5D]">*</span>
@@ -33,7 +33,7 @@
                 @enderror
             </div>
 
-            <!-- Jenis dan Ras -->
+            <!-- jenis/ras -->
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
                     <label for="species" class="block text-sm font-semibold text-[#1A3A35] mb-2">
@@ -72,7 +72,7 @@
                 </div>
             </div>
 
-            <!-- Tanggal Lahir dan Jenis Kelamin -->
+            <!-- tgl/jenkel -->
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
                     <label for="dob" class="block text-sm font-semibold text-[#1A3A35] mb-2">
@@ -112,7 +112,7 @@
                 </div>
             </div>
 
-            <!-- Foto Hewan (WAJIB) -->
+            <!-- foto (mand) -->
             <div>
                 <label for="photo" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                     Foto Hewan <span class="text-[#E85D5D]">* (Wajib)</span>
@@ -147,7 +147,7 @@
                 @enderror
             </div>
 
-            <!-- Info Box -->
+            <!-- tips -->
             <div class="p-4 bg-[#E8F5E9] border border-[#52C77B] rounded-xl">
                 <div class="flex items-start gap-3">
                     <svg class="w-5 h-5 text-[#52C77B] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -164,7 +164,7 @@
                 </div>
             </div>
 
-            <!-- Tombol Aksi -->
+            <!-- action btn -->
             <div class="flex flex-col sm:flex-row gap-4 pt-4">
                 <button 
                     type="submit"
@@ -204,7 +204,6 @@
         }
     }
 
-    // Drag and drop functionality
     const dropzone = document.getElementById('photo-dropzone');
     const fileInput = document.getElementById('photo');
 

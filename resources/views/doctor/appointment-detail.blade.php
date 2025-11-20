@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="max-w-5xl mx-auto space-y-6">
-    <!-- Back Button -->
+    <!-- back -->
     <a href="{{ route('doctor.dashboard') }}" class="inline-flex items-center gap-2 text-[#2D7A6E] hover:text-[#1F5951] font-semibold">
         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
@@ -13,7 +13,7 @@
         Kembali ke Dashboard
     </a>
 
-    <!-- Pet & Owner Info -->
+    <!-- pet/owner detail -->
     <div class="bg-white rounded-2xl p-8 border-2 border-[#E5F0ED]">
         <div class="flex items-start gap-6 mb-6">
             @if($appointment->pet->photo)
@@ -60,7 +60,7 @@
         </div>
     </div>
 
-    <!-- Services -->
+    <!-- services -->
     <div class="bg-white rounded-2xl p-8 border-2 border-[#E5F0ED]">
         <h3 class="text-xl font-bold text-[#1A3A35] mb-4">Layanan</h3>
         <div class="space-y-3">
@@ -77,7 +77,7 @@
             @endforeach
         </div>
 
-        <!-- Add Service Form (only for confirmed appointments) -->
+        <!-- layanan tambahan -->
         @if($appointment->status === 'confirmed')
             <div class="mt-6 p-6 bg-[#FFF5EC] border-2 border-[#FF8F5B] rounded-xl">
                 <h4 class="font-semibold text-[#1A3A35] mb-3">Tambah Layanan</h4>
@@ -104,7 +104,7 @@
         @endif
     </div>
 
-    <!-- Client Notes -->
+    <!-- note client -->
     @if($appointment->client_notes)
         <div class="bg-white rounded-2xl p-8 border-2 border-[#E5F0ED]">
             <h3 class="text-xl font-bold text-[#1A3A35] mb-3">Catatan Klien</h3>
@@ -112,7 +112,7 @@
         </div>
     @endif
 
-    <!-- Doctor Notes -->
+    <!-- note doc -->
     <div class="bg-white rounded-2xl p-8 border-2 border-[#E5F0ED]">
         <h3 class="text-xl font-bold text-[#1A3A35] mb-4">Catatan Dokter</h3>
         
@@ -137,7 +137,7 @@
         @endif
     </div>
 
-    <!-- Actions -->
+    <!-- action button -->
     @if($appointment->status === 'confirmed')
         <div class="bg-gradient-to-r from-[#2D7A6E] to-[#4A9FD8] rounded-2xl p-6 text-white">
             <div class="flex items-center justify-between">

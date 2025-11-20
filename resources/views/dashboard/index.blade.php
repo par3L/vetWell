@@ -5,9 +5,9 @@
 
 @section('content')
 <div class="space-y-6">
-    <!-- Statistics Cards -->
+    <!-- stat card -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <!-- Total Pets -->
+        <!-- mypet -->
         <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED] hover:shadow-lg transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
@@ -22,7 +22,7 @@
             </div>
         </div>
 
-        <!-- Total Appointments -->
+        <!-- total booking -->
         <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED] hover:shadow-lg transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
@@ -37,7 +37,7 @@
             </div>
         </div>
 
-        <!-- Pending Appointments -->
+        <!-- pending -->
         <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED] hover:shadow-lg transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
@@ -52,7 +52,7 @@
             </div>
         </div>
 
-        <!-- Completed Appointments -->
+        <!-- done -->
         <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED] hover:shadow-lg transition-all duration-300">
             <div class="flex items-center justify-between">
                 <div>
@@ -69,7 +69,7 @@
     </div>
 
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <!-- Upcoming Appointments -->
+        <!-- yang akan datang -->
         <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED]">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-xl font-bold text-[#1A3A35]">Janji Temu Mendatang</h2>
@@ -136,7 +136,7 @@
             @endif
         </div>
 
-        <!-- Recent Activity -->
+        <!-- recent -->
         <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED]">
             <div class="flex items-center justify-between mb-6">
                 <h2 class="text-xl font-bold text-[#1A3A35]">Aktivitas Terkini</h2>
@@ -205,7 +205,7 @@
         </div>
     </div>
 
-    <!-- Quick Actions -->
+    <!-- qa -->
     <div class="bg-gradient-to-r from-[#2D7A6E] to-[#4A9FD8] rounded-2xl p-8 text-white">
         <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
             <div>

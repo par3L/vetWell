@@ -14,7 +14,7 @@
         <form method="POST" action="{{ route('dashboard.store-booking') }}" class="space-y-6">
             @csrf
 
-            <!-- Pet Selection -->
+            <!-- selection pet -->
             <div>
                 <label for="pet_id" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                     Pilih Hewan Peliharaan <span class="text-[#E85D5D]">*</span>
@@ -43,7 +43,7 @@
                 @enderror
             </div>
 
-            <!-- Service Selection (Multiple) -->
+            <!-- layanan  -->
             <div>
                 <label class="block text-sm font-semibold text-[#1A3A35] mb-3">
                     Layanan yang Diperlukan <span class="text-[#E85D5D]">*</span>
@@ -70,7 +70,7 @@
                 @enderror
             </div>
 
-            <!-- Doctor Selection -->
+            <!-- doctor -->
             <div>
                 <label for="doctor_id" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                     Dokter Pilihan <span class="text-[#E85D5D]">*</span>
@@ -83,7 +83,7 @@
                 >
                     <option value="">Pilih dokter</option>
                     <option value="random" {{ old('doctor_id') == 'random' ? 'selected' : '' }} class="font-semibold text-[#2D7A6E]">
-                        🎲 Pilih Secara Acak / Bebas Dipilihkan
+                        Pilih Secara Acak / Bebas Dipilihkan
                     </option>
                     <option disabled>──────────</option>
                     @foreach($doctors as $doctor)
@@ -93,14 +93,14 @@
                     @endforeach
                 </select>
                 <p class="mt-1 text-xs text-[#5A7A76]">
-                    💡 Pilih "Pilih Secara Acak" jika tidak memiliki preferensi dokter tertentu
+                    Pilih "Pilih Secara Acak" jika tidak memiliki preferensi dokter tertentu
                 </p>
                 @error('doctor_id')
                     <p class="mt-1 text-sm text-[#E85D5D]">{{ $message }}</p>
                 @enderror
             </div>
 
-            <!-- Date & Time Selection -->
+            <!-- tanggal -->
             <div class="grid md:grid-cols-2 gap-4">
                 <div>
                     <label for="appointment_date" class="block text-sm font-semibold text-[#1A3A35] mb-2">
@@ -138,7 +138,7 @@
                 </div>
             </div>
 
-            <!-- Additional Notes -->
+            <!-- notes client -->
             <div>
                 <label for="client_notes" class="block text-sm font-semibold text-[#1A3A35] mb-2">
                     Catatan Tambahan <span class="text-[#5A7A76] font-normal text-xs">(Opsional)</span>
@@ -156,7 +156,7 @@
                 @enderror
             </div>
 
-            <!-- Information Box -->
+            <!-- tips -->
             <div class="p-4 bg-[#E8F5E9] border border-[#52C77B] rounded-xl">
                 <div class="flex items-start gap-3">
                     <svg class="w-5 h-5 text-[#52C77B] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -174,7 +174,7 @@
                 </div>
             </div>
 
-            <!-- Action Buttons -->
+            <!-- action btn -->
             <div class="flex flex-col sm:flex-row gap-4 pt-4">
                 <button 
                     type="submit"

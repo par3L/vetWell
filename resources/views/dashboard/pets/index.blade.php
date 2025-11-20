@@ -5,7 +5,7 @@
 
 @section('content')
 <div class="space-y-6">
-    <!-- Header dengan Tombol Tambah -->
+    <!-- header -->
     <div class="bg-white rounded-2xl p-6 border-2 border-[#E5F0ED]">
         <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
@@ -20,7 +20,7 @@
             </a>
         </div>
         
-        <!-- Search Bar -->
+        <!-- searchbar -->
         <form method="GET" action="{{ route('pets.index') }}" class="mt-4">
             <div class="relative">
                 <input 
@@ -37,15 +37,15 @@
         </form>
     </div>
 
-    <!-- Daftar Hewan -->
+    <!-- list -->
     @if($data->count() > 0)
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             @foreach($data as $pet)
                 <div class="bg-white rounded-2xl border-2 border-[#E5F0ED] overflow-hidden hover:shadow-lg transition-all duration-300">
-                    <!-- Foto Hewan -->
+                    <!-- foto hewan -->
                     <div class="h-48 bg-gradient-to-br from-[#F0F8F6] to-[#FFF5EC] relative overflow-hidden">
                         @if($pet->photo)
-                            <img src="{{ asset($pet->photo) }}" alt="{{ $pet->name }}" class="w-full h-full object-cover">
+                            <img src="{{ Storage::url($pet->photo) }}" alt="{{ $pet->name }}" class="w-full h-full object-cover">
                         @else
                             <div class="w-full h-full flex items-center justify-center">
                                 <svg class="w-20 h-20 text-[#5A7A76]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@
                         @endif
                     </div>
                     
-                    <!-- Info Hewan -->
+                    <!-- detail -->
                     <div class="p-6">
                         <h3 class="text-xl font-bold text-[#1A3A35] mb-2">{{ $pet->name }}</h3>
                         
@@ -89,7 +89,7 @@
                             </div>
                         </div>
                         
-                        <!-- Tombol Aksi -->
+                        <!-- action btn -->
                         <div class="flex gap-2">
                             <a href="{{ route('pets.edit', $pet->id) }}" class="flex-1 px-4 py-2 bg-[#4A9FD8] hover:bg-[#2D7A6E] text-white font-semibold rounded-lg transition-all duration-300 text-sm text-center flex items-center justify-center gap-2">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -116,7 +116,7 @@
             @endforeach
         </div>
     @else
-        <!-- Empty State -->
+        <!-- if empty -->
         <div class="bg-white rounded-2xl p-12 border-2 border-[#E5F0ED] text-center">
             <div class="w-24 h-24 rounded-full bg-[#F0F8F6] flex items-center justify-center mx-auto mb-6">
                 <svg class="w-12 h-12 text-[#5A7A76]" fill="none" stroke="currentColor" viewBox="0 0 24 24">

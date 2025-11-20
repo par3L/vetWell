@@ -14,10 +14,10 @@
 <body class="antialiased font-sans text-neutral-800 bg-gradient-to-br from-[#F0F8F6] via-white to-[#FFF5EC]">
     
     <div class="min-h-screen flex">
-        <!-- Sidebar -->
+        <!-- sidebar -->
         <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-[#E5F0ED] transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0">
             <div class="flex flex-col h-full">
-                <!-- Logo -->
+                <!-- logo -->
                 <div class="flex items-center justify-between h-20 px-6 border-b border-[#E5F0ED]">
                     <a href="{{ route('dashboard.index') }}" class="flex items-center gap-3">
                         <img src="{{ asset('logo.png') }}" alt="VetWell" class="h-12 w-auto">
@@ -29,7 +29,7 @@
                     </button>
                 </div>
 
-                <!-- Navigation -->
+                <!-- nav -->
                 <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
                     <a href="{{ route('dashboard.index') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ request()->routeIs('dashboard.index') ? 'bg-gradient-to-r from-[#2D7A6E] to-[#4A9FD8] text-white shadow-lg' : 'text-[#5A7A76] hover:bg-[#F0F8F6] hover:text-[#2D7A6E]' }}">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -69,17 +69,21 @@
                     </div>
                 </nav>
 
-                <!-- User Profile -->
+                <!-- profile -->
                 <div class="p-4 border-t border-[#E5F0ED]">
-                    <div class="flex items-center gap-3 px-4 py-3 bg-[#F0F8F6] rounded-xl">
-                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#2D7A6E] to-[#4A9FD8] flex items-center justify-center text-white font-bold">
-                            {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
-                        </div>
+                    <a href="{{ route('dashboard.profile') }}" class="flex items-center gap-3 px-4 py-3 bg-[#F0F8F6] rounded-xl hover:bg-[#E5F0ED] transition-all duration-300 cursor-pointer">
+                        @if(Auth::user()->photo)
+                            <img src="{{ Storage::url(Auth::user()->photo) }}" alt="{{ Auth::user()->name }}" class="w-10 h-10 rounded-full object-cover border-2 border-[#2D7A6E]">
+                        @else
+                            <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#2D7A6E] to-[#4A9FD8] flex items-center justify-center text-white font-bold">
+                                {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                            </div>
+                        @endif
                         <div class="flex-1 min-w-0">
                             <p class="text-sm font-semibold text-[#1A3A35] truncate">{{ Auth::user()->name }}</p>
                             <p class="text-xs text-[#5A7A76] truncate">{{ Auth::user()->email }}</p>
                         </div>
-                    </div>
+                    </a>
                     <form method="POST" action="{{ route('logout') }}" class="mt-2">
                         @csrf
                         <button type="submit" class="w-full flex items-center gap-2 px-4 py-3 text-[#E85D5D] hover:bg-red-50 rounded-xl transition-all duration-300">
@@ -93,12 +97,12 @@
             </div>
         </aside>
 
-        <!-- Overlay for mobile -->
-        <div id="sidebar-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 lg:hidden hidden"></div>
+        <!-- overlay res < desktop -->
+        <div id="sidebar-overlay" class="fixed inset-0 backdrop-blur-sm z-40 lg:hidden hidden"></div>
 
-        <!-- Main Content -->
+        <!-- main -->
         <div class="flex-1 flex flex-col min-h-screen">
-            <!-- Top Header -->
+            <!-- header -->
             <header class="bg-white border-b border-[#E5F0ED] sticky top-0 z-30">
                 <div class="flex items-center justify-between h-20 px-4 lg:px-8">
                     <button id="sidebar-toggle" class="lg:hidden text-[#5A7A76] hover:text-[#2D7A6E] p-2">
@@ -120,9 +124,9 @@
                 </div>
             </header>
 
-            <!-- Page Content -->
+            <!-- page content -->
             <main class="flex-1 p-4 lg:p-8">
-                <!-- Success Message -->
+                <!-- if session -->
                 @if(session('success'))
                     <div class="mb-6 p-4 bg-[#E8F5E9] border border-[#52C77B] text-[#2E7D32] rounded-xl flex items-start gap-3">
                         <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -132,7 +136,7 @@
                     </div>
                 @endif
 
-                <!-- Error Messages -->
+                <!-- else -->
                 @if($errors->any())
                     <div class="mb-6 p-4 bg-[#FDEAEA] border border-[#E85D5D] text-[#D44545] rounded-xl">
                         <div class="flex items-start gap-3">
@@ -155,7 +159,7 @@
         </div>
     </div>
 
-    <!-- Sidebar Toggle Script -->
+    <!-- js script -->
     <script>
         const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebar-toggle');
@@ -176,7 +180,6 @@
         sidebarClose.addEventListener('click', closeSidebar);
         sidebarOverlay.addEventListener('click', closeSidebar);
 
-        // Close sidebar on mobile when screen is resized to desktop
         window.addEventListener('resize', function() {
             if (window.innerWidth >= 1024) {
                 sidebarOverlay.classList.add('hidden');
