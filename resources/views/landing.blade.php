@@ -14,12 +14,12 @@
     @vite('resources/css/app.css')
 </head>
 <body class="antialiased font-sans text-neutral-800">
-    <!-- navbar -->
+
     <x-navbar />
 
-    <!-- hero section dengan -->
+    <!-- hero section  -->
     <section class="relative bg-gradient-to-br from-[#F0F8F6] via-white to-[#FFF5EC] overflow-hidden pt-24 lg:pt-32 pb-20">
-        <!-- dekoratif background -->
+        <!-- background -->
         <div class="absolute inset-0 opacity-20">
             <div class="absolute top-20 left-10 w-64 h-64 bg-[#2D7A6E] rounded-full blur-3xl"></div>
             <div class="absolute bottom-20 right-10 w-96 h-96 bg-[#FFB088] rounded-full blur-3xl"></div>
@@ -122,11 +122,11 @@
                 </p>
             </div>
 
-            <!-- grid fitur klinik -->
+            <!-- fitur klinik -->
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- fitur 1: tim dokter expert -->
+                <!-- fitur 1: dokter expert -->
                 <div class="group relative bg-gradient-to-br from-white to-[#F0F8F6] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#2D7A6E] overflow-hidden hover:-translate-y-2">
-                    <!-- pattern background -->
+                    <!-- pattern bg -->
                     <div class="absolute top-0 right-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <path fill="#2D7A6E" d="M45,-55C58.2,-45.7,68.5,-32.4,73.5,-17.1C78.5,-1.9,78.2,15.3,71.1,29.3C64.1,43.3,50.3,54.1,35.3,61.1C20.3,68.1,4.1,71.3,-12.2,69.1C-28.5,66.9,-45,59.3,-56.8,47.5C-68.6,35.7,-75.7,19.7,-76.2,3.4C-76.7,-12.9,-70.6,-29.5,-60.3,-42.3C-50,-55.1,-35.5,-64.1,-20.5,-68.9C-5.5,-73.7,10,-74.3,23.8,-68.8C37.6,-63.3,49.8,-51.7,45,-55Z" transform="translate(100 100)" />
@@ -152,7 +152,7 @@
 
                 <!-- fitur 2: fasilitas modern -->
                 <div class="group relative bg-gradient-to-br from-white to-[#EFF7FC] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#4A9FD8] overflow-hidden hover:-translate-y-2">
-                    <!-- pattern background -->
+                    <!-- pattern bg -->
                     <div class="absolute top-0 right-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <path fill="#4A9FD8" d="M45,-55C58.2,-45.7,68.5,-32.4,73.5,-17.1C78.5,-1.9,78.2,15.3,71.1,29.3C64.1,43.3,50.3,54.1,35.3,61.1C20.3,68.1,4.1,71.3,-12.2,69.1C-28.5,66.9,-45,59.3,-56.8,47.5C-68.6,35.7,-75.7,19.7,-76.2,3.4C-76.7,-12.9,-70.6,-29.5,-60.3,-42.3C-50,-55.1,-35.5,-64.1,-20.5,-68.9C-5.5,-73.7,10,-74.3,23.8,-68.8C37.6,-63.3,49.8,-51.7,45,-55Z" transform="translate(100 100)" />
@@ -178,7 +178,7 @@
 
                 <!-- fitur 3: compassionate care -->
                 <div class="group relative bg-gradient-to-br from-white to-[#FFF5EC] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#FFB088] overflow-hidden hover:-translate-y-2">
-                    <!-- pattern background -->
+                    <!-- pattern bg -->
                     <div class="absolute top-0 right-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <path fill="#FFB088" d="M45,-55C58.2,-45.7,68.5,-32.4,73.5,-17.1C78.5,-1.9,78.2,15.3,71.1,29.3C64.1,43.3,50.3,54.1,35.3,61.1C20.3,68.1,4.1,71.3,-12.2,69.1C-28.5,66.9,-45,59.3,-56.8,47.5C-68.6,35.7,-75.7,19.7,-76.2,3.4C-76.7,-12.9,-70.6,-29.5,-60.3,-42.3C-50,-55.1,-35.5,-64.1,-20.5,-68.9C-5.5,-73.7,10,-74.3,23.8,-68.8C37.6,-63.3,49.8,-51.7,45,-55Z" transform="translate(100 100)" />
@@ -204,7 +204,7 @@
 
                 <!-- fitur 4: emergency 24/7 -->
                 <div class="group relative bg-gradient-to-br from-white to-[#FDEAEA] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#E85D5D] overflow-hidden hover:-translate-y-2">
-                    <!-- pattern background -->
+                    <!-- pattern bg -->
                     <div class="absolute top-0 right-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <path fill="#E85D5D" d="M45,-55C58.2,-45.7,68.5,-32.4,73.5,-17.1C78.5,-1.9,78.2,15.3,71.1,29.3C64.1,43.3,50.3,54.1,35.3,61.1C20.3,68.1,4.1,71.3,-12.2,69.1C-28.5,66.9,-45,59.3,-56.8,47.5C-68.6,35.7,-75.7,19.7,-76.2,3.4C-76.7,-12.9,-70.6,-29.5,-60.3,-42.3C-50,-55.1,-35.5,-64.1,-20.5,-68.9C-5.5,-73.7,10,-74.3,23.8,-68.8C37.6,-63.3,49.8,-51.7,45,-55Z" transform="translate(100 100)" />
@@ -230,7 +230,7 @@
 
                 <!-- fitur 5: easy booking -->
                 <div class="group relative bg-gradient-to-br from-white to-[#FFF8ED] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#FFA94D] overflow-hidden hover:-translate-y-2">
-                    <!-- pattern background -->
+                    <!-- pattern bg -->
                     <div class="absolute top-0 right-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <path fill="#FFA94D" d="M45,-55C58.2,-45.7,68.5,-32.4,73.5,-17.1C78.5,-1.9,78.2,15.3,71.1,29.3C64.1,43.3,50.3,54.1,35.3,61.1C20.3,68.1,4.1,71.3,-12.2,69.1C-28.5,66.9,-45,59.3,-56.8,47.5C-68.6,35.7,-75.7,19.7,-76.2,3.4C-76.7,-12.9,-70.6,-29.5,-60.3,-42.3C-50,-55.1,-35.5,-64.1,-20.5,-68.9C-5.5,-73.7,10,-74.3,23.8,-68.8C37.6,-63.3,49.8,-51.7,45,-55Z" transform="translate(100 100)" />
@@ -256,7 +256,7 @@
 
                 <!-- fitur 6: affordable pricing -->
                 <div class="group relative bg-gradient-to-br from-white to-[#EDFAF2] p-8 rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#52C77B] overflow-hidden hover:-translate-y-2">
-                    <!-- pattern background -->
+                    <!-- pattern bg -->
                     <div class="absolute top-0 right-0 w-32 h-32 opacity-5 group-hover:opacity-10 transition-opacity duration-500">
                         <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                             <path fill="#52C77B" d="M45,-55C58.2,-45.7,68.5,-32.4,73.5,-17.1C78.5,-1.9,78.2,15.3,71.1,29.3C64.1,43.3,50.3,54.1,35.3,61.1C20.3,68.1,4.1,71.3,-12.2,69.1C-28.5,66.9,-45,59.3,-56.8,47.5C-68.6,35.7,-75.7,19.7,-76.2,3.4C-76.7,-12.9,-70.6,-29.5,-60.3,-42.3C-50,-55.1,-35.5,-64.1,-20.5,-68.9C-5.5,-73.7,10,-74.3,23.8,-68.8C37.6,-63.3,49.8,-51.7,45,-55Z" transform="translate(100 100)" />
@@ -302,7 +302,7 @@
             </div>
 
             <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- value 1: trust dengan gambar vet.jpg -->
+                <!-- value 1: trust  -->
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#2D7A6E] hover:-translate-y-2 animate-fade-in">
                     <div class="aspect-[4/3] relative">
                         <img src="{{ asset('assets/vet.jpg') }}" alt="Kepercayaan - Dokter Hewan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1">
@@ -323,7 +323,7 @@
                     </div>
                 </div>
 
-                <!-- value 2: compassion dengan gambar care.jpg -->
+                <!-- value 2: compassion -->
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#FFB088] hover:-translate-y-2 animate-fade-in" style="animation-delay: 150ms;">
                     <div class="aspect-[4/3] relative">
                         <img src="{{ asset('assets/care.jpg') }}" alt="Kasih Sayang - Perawatan Hewan" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1">
@@ -344,7 +344,7 @@
                     </div>
                 </div>
 
-                <!-- value 3: excellence dengan gambar facility.jpg -->
+                <!-- value 3: excellence  -->
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#4A9FD8] hover:-translate-y-2 animate-fade-in" style="animation-delay: 300ms;">
                     <div class="aspect-[4/3] relative">
                         <img src="{{ asset('assets/facility.jpg') }}" alt="Keunggulan - Fasilitas Modern" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1">
@@ -365,7 +365,7 @@
                     </div>
                 </div>
 
-                <!-- value 4: innovation dengan gambar inovation.jpg -->
+                <!-- value 4: innovation -->
                 <div class="group relative overflow-hidden rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#52C77B] hover:-translate-y-2 animate-fade-in" style="animation-delay: 450ms;">
                     <div class="aspect-[4/3] relative">
                         <img src="{{ asset('assets/inovation.jpg') }}" alt="Inovasi - Teknologi Modern" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 group-hover:rotate-1">
@@ -389,9 +389,9 @@
         </div>
     </section>
 
-    <!-- section call to action -->
+    <!-- call to action -->
     <section id="book" class="py-16 lg:py-20 bg-gradient-to-br from-[#F0F8F6] via-white to-[#FFF5EC] relative overflow-hidden">
-        <!-- decorative elements -->
+        <!-- decorative -->
         <div class="absolute inset-0 opacity-30">
             <div class="absolute top-0 left-0 w-96 h-96 bg-[#2D7A6E]/20 rounded-full blur-3xl"></div>
             <div class="absolute bottom-0 right-0 w-96 h-96 bg-[#FFB088]/20 rounded-full blur-3xl"></div>
@@ -430,7 +430,6 @@
         </div>
     </section>
 
-    <!-- footer -->
     <x-footer />
 
     <!-- tombol scroll to top -->
@@ -441,7 +440,6 @@
     </button>
 
     <script>
-        // scroll to top button functionality
         const scrollTopBtn = document.getElementById('scrollTop');
         
         window.addEventListener('scroll', () => {
@@ -458,7 +456,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         });
 
-        // smooth scroll untuk anchor links
+        // smooth scroll anchor links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 const href = this.getAttribute('href');
@@ -476,7 +474,7 @@
             });
         });
 
-        // intersection observer untuk animasi on scroll
+        // intersection observer 
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
