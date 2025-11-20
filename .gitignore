@@ -26,4 +26,4 @@ out/
 database-structure.puml
 system-design.md
 upload/
-test/
+tests/
