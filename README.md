@@ -2,97 +2,95 @@
 
 # Sistem Manajemen Klinik VetWell
 
-sistem manajemen klinik hewan yang komprehensif dibangun dengan laravel 11, dilengkapi dengan penjadwalan janji temu, manajemen hewan peliharaan, rekam medis, manajemen profil pengguna, dan restful api terintegrasi.
+Sistem manajemen klinik hewan yang komprehensif dibangun dengan laravel 11, dilengkapi dengan penjadwalan janji temu, manajemen hewan peliharaan, rekam medis, manajemen profil pengguna, dan restful api terintegrasi.
 
 ## Daftar Isi
 
-- [gambaran umum](#gambaran-umum)
-- [fitur](#fitur)
-- [stack teknologi](#stack-teknologi)
-- [kebutuhan sistem](#kebutuhan-sistem)
-- [instalasi](#instalasi)
-- [konfigurasi](#konfigurasi)
-- [dokumentasi api](#dokumentasi-api)
-- [skema database](#skema-database)
-- [penggunaan](#penggunaan)
-- [testing](#testing)
-- [kontribusi](#kontribusi)
-- [lisensi](#lisensi)
+- [Gambaran Umum](#gambaran-umum)
+- [Fitur](#fitur)
+- [TechStack](#stack-teknologi)
+- [Kebutuhan Sistem](#kebutuhan-sistem)
+- [Instalasi](#instalasi)
+- [Konfigurasi](#konfigurasi)
+- [Dokumentasi API](#dokumentasi-api)
+- [Penggunaan](#penggunaan)
+- [Kontribusi](#kontribusi)
+- [Lisensi](#lisensi)
 
 ## Gambaran Umum
 
-vetwell adalah sistem manajemen klinik berbasis web modern yang dirancang khusus untuk praktik veteriner. sistem ini menyederhanakan operasional harian dengan menyediakan tools komprehensif untuk mengelola janji temu, rekam pasien, billing, dan riwayat medis. sistem ini mencakup antarmuka web dan endpoint restful api untuk integrasi seamless dengan aplikasi pihak ketiga.
+Vetwell adalah sistem manajemen klinik berbasis web modern yang dirancang khusus untuk praktik veteriner. Sistem ini menyederhanakan operasional harian dengan menyediakan tools komprehensif untuk mengelola janji temu, rekam pasien, billing, dan riwayat medis. Sistem ini mencakup antarmuka web dan endpoint restful api untuk integrasi seamless dengan aplikasi pihak ketiga.
 
 ## Fitur
 
 ### Portal Klien
-- registrasi dan autentikasi pengguna
-- manajemen profil dengan upload foto (user-photos)
-- edit profil (nama, email, telepon)
-- ganti password dengan validasi
-- manajemen profil hewan peliharaan dengan upload foto (pet-photos)
-- booking dan penjadwalan janji temu dengan pilihan dokter dan layanan
-- pelacakan status janji temu secara real-time (pending, confirmed, completed, cancelled)
-- pembatalan janji temu yang masih pending
-- melihat riwayat medis
-- proses pembayaran untuk transaksi
-- dashboard dengan overview statistik (total pets, appointments, transactions)
-- tampilan foto profil di navbar dan sidebar
+- Registrasi dan autentikasi pengguna
+- Manajemen profil dengan upload foto (user-photos)
+- Edit profil (nama, email, telepon)
+- Ganti password dengan validasi
+- Manajemen profil hewan peliharaan dengan upload foto (pet-photos)
+- Booking dan penjadwalan janji temu dengan pilihan dokter dan layanan
+- Pelacakan status janji temu secara real-time (pending, confirmed, completed, cancelled)
+- Pembatalan janji temu yang masih pending
+- Melihat riwayat medis
+- Proses pembayaran untuk transaksi
+- Dashboard dengan overview statistik (total pets, appointments, transactions)
+- Tampilan foto profil di navbar dan sidebar
 
 ### Portal Dokter
-- registrasi dokter dengan upload foto profil (doc-photos)
-- autentikasi terpisah untuk dokter
-- manajemen profil dokter (foto, nama, email, telepon, spesialisasi, posisi)
-- ganti password dengan validasi
-- dashboard dengan statistik appointment (pending, confirmed, completed)
-- manajemen dan konfirmasi janji temu
-- pembuatan dan update rekam medis
-- penambahan layanan dan item selama konsultasi
-- catatan dokter dan diagnosis
-- pembuatan transaksi otomatis setelah janji temu selesai
-- tampilan foto profil di navbar dan sidebar
-- kontrol visibilitas di halaman team (show_in_team toggle)
+- Registrasi dokter dengan upload foto profil (doc-photos)
+- Autentikasi terpisah untuk dokter
+- Manajemen profil dokter (foto, nama, email, telepon, spesialisasi, posisi)
+- Ganti password dengan validasi
+- Dashboard dengan statistik appointment (pending, confirmed, completed)
+- Manajemen dan konfirmasi janji temu
+- Pembuatan dan update rekam medis
+- Penambahan layanan dan item selama konsultasi
+- Catatan dokter dan diagnosis
+- Pembuatan transaksi otomatis setelah janji temu selesai
+- Tampilan foto profil di navbar dan sidebar
+- Kontrol visibilitas di halaman team (show_in_team toggle)
 
 ### Portal Admin
-- dashboard dengan statistik lengkap (total users, pets, appointments, revenue)
-- manajemen dokter (crud dengan upload foto ke doc-photos)
-- toggle status show_in_team untuk menampilkan dokter di halaman team
-- manajemen staff dengan upload foto (staff-photos)
-- manajemen layanan dan harga (crud services)
-- manajemen transaksi dan billing
-- monitoring seluruh sistem
+- Dashboard dengan statistik lengkap (total users, pets, appointments, revenue)
+- Manajemen dokter (crud dengan upload foto ke doc-photos)
+- Toggle status show_in_team untuk menampilkan dokter di halaman team
+- Manajemen staff dengan upload foto (staff-photos)
+- Manajemen layanan dan harga (crud services)
+- Manajemen transaksi dan billing
+- Monitoring seluruh sistem
 
 ### Restful API
-- autentikasi berbasis token menggunakan laravel sanctum
-- endpoint pets (list, create, edit, delete)
-- endpoint appointments (list, create, edit, cancel)
-- endpoint services (list)
-- endpoint doctors (list)
-- endpoint transactions (pay)
-- error handling dan validasi komprehensif
-- format respons json dengan struktur standar
+- Autentikasi berbasis token menggunakan laravel sanctum
+- Endpoint pets (list, create, edit, delete)
+- Endpoint appointments (list, create, edit, cancel)
+- Endpoint services (list)
+- Endpoint doctors (list)
+- Endpoint transactions (pay)
+- Error handling dan validasi komprehensif
+- Format respons json dengan struktur standar
 
 ### Fitur Tambahan
-- sistem role-based access control (admin, dokter, klien)
-- upload foto dengan storage laravel di storage/app/public
-- folder terorganisir: doc-photos, pet-photos, user-photos, staff-photos
-- symbolic link storage ke public/storage
-- validasi upload file (image, max size)
-- preview foto sebelum upload dengan javascript
-- fallback ke inisial nama jika tidak ada foto
-- relationship eloquent yang kompleks antar model
+- Sistem role-based access control (admin, dokter, klien)
+- Upload foto dengan storage laravel di storage/app/public
+- Folder terorganisir: doc-photos, pet-photos, user-photos, staff-photos
+- Yymbolic link storage ke public/storage
+- Validasi upload file (image, max size)
+- Preview foto sebelum upload dengan javascript
+- Fallback ke inisial nama jika tidak ada foto
+- Relationship eloquent yang kompleks antar model
 
 ## TechStack
 
-- **framework**: laravel 11.x
-- **versi php**: 8.2+
-- **frontend**: blade templates, tailwind css, alpine.js
-- **database**: mysql/mariadb
-- **autentikasi**: laravel sanctum (api), authentication (web)
-- **storage**: laravel storage dengan symbolic link
-- **build tool**: vite
-- **package manager**: composer, npm
-- **testing**: phpunit dengan refreshdatabase
+- **Framework**: laravel 11.x
+- **Versi php**: 8.2+
+- **Drontend**: blade templates, tailwind css
+- **Satabase**: mysql/mariadb
+- **Autentikasi**: laravel sanctum (api), authentication (web)
+- **Storage**: laravel storage dengan symbolic link
+- **Build tool**: vite
+- **Package manager**: composer, npm
+- **Testing**: phpunit dengan refreshdatabase
 
 ## Kebutuhan Sistem
 
