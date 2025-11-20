@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="scroll-smooth">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@yield('title', 'Dashboard Admin') - VetWell Clinic</title>
+    <link rel="icon" type="image/png" href="{{ asset('logo2.png') }}">
+    
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=nunito:300,400,500,600,700|poppins:400,500,600,700|quicksand:400,500,600,700" rel="stylesheet">
+    
+    @vite('resources/css/app.css')
+</head>
+<body class="antialiased font-sans text-neutral-800 bg-gradient-to-br from-[#F0F8F6] via-white to-[#FFF5EC]">
+    
+    <div class="min-h-screen flex">
+        <!-- sidebar -->
+        <aside id="sidebar" class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-[#E5F0ED] transform transition-transform duration-300 ease-in-out lg:translate-x-0 lg:static lg:inset-0">
+            <div class="flex flex-col h-full">
+                <!-- logo/brand -->
+                <div class="flex items-center justify-between h-20 px-6 border-b border-[#E5F0ED]">
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3">
+                        <img src="{{ asset('logo.png') }}" alt="VetWell" class="h-12 w-auto">
+                    </a>
+                    <button id="sidebar-close" class="lg:hidden text-[#5A7A76] hover:text-[#2D7A6E]">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        </svg>
+                    </button>
+                </div>
+
+                <!-- nav -->
+                <nav class="flex-1 px-4 py-6 space-y-2 overflow-y-auto">
+                    <a href="{{ route('admin.dashboard') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ request()->routeIs('admin.dashboard') ? 'bg-gradient-to-r from-[#2D7A6E] to-[#4A9FD8] text-white shadow-lg' : 'text-[#5A7A76] hover:bg-[#F0F8F6] hover:text-[#2D7A6E]' }}">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                        </svg>
+                        <span class="font-semibold">Dashboard</span>
+                    </a>
+
+                    <a href="{{ route('admin.team') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ request()->routeIs('admin.team') ? 'bg-gradient-to-r from-[#2D7A6E] to-[#4A9FD8] text-white shadow-lg' : 'text-[#5A7A76] hover:bg-[#F0F8F6] hover:text-[#2D7A6E]' }}">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                        </svg>
+                        <span class="font-semibold">Kelola Team</span>
+                    </a>
+
+                    <a href="{{ route('admin.services') }}" class="flex items-center gap-3 px-4 py-3 rounded-xl transition-all duration-300 {{ request()->routeIs('admin.services') ? 'bg-gradient-to-r from-[#2D7A6E] to-[#4A9FD8] text-white shadow-lg' : 'text-[#5A7A76] hover:bg-[#F0F8F6] hover:text-[#2D7A6E]' }}">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                        </svg>
+                        <span class="font-semibold">Kelola Services</span>
+                    </a>
+
+                    <div class="pt-4 mt-4 border-t border-[#E5F0ED]">
+                        <a href="{{ route('landing') }}" class="flex items-center gap-3 px-4 py-3 text-[#5A7A76] hover:bg-[#F0F8F6] hover:text-[#2D7A6E] rounded-xl transition-all duration-300">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            <span class="font-semibold">Kembali ke Beranda</span>
+                        </a>
+                    </div>
+                </nav>
+
+                <!-- user profile -->
+                <div class="p-4 border-t border-[#E5F0ED]">
+                    <div class="flex items-center gap-3 px-4 py-3 bg-[#F0F8F6] rounded-xl">
+                        <div class="w-10 h-10 rounded-full bg-gradient-to-br from-[#2D7A6E] to-[#4A9FD8] flex items-center justify-center text-white font-bold">
+                            {{ strtoupper(substr(Auth::user()->name, 0, 1)) }}
+                        </div>
+                        <div class="flex-1 min-w-0">
+                            <p class="text-sm font-semibold text-[#1A3A35] truncate">{{ Auth::user()->name }}</p>
+                            <p class="text-xs text-[#5A7A76] truncate">Admin</p>
+                        </div>
+                    </div>
+                    <form method="POST" action="{{ route('logout') }}" class="mt-2">
+                        @csrf
+                        <button type="submit" class="w-full flex items-center gap-2 px-4 py-3 text-[#E85D5D] hover:bg-red-50 rounded-xl transition-all duration-300">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                            </svg>
+                            <span class="font-semibold">Logout</span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </aside>
+
+        <!-- overlay mobile -->
+        <div id="sidebar-overlay" class="fixed inset-0 backdrop-blur-sm z-40 lg:hidden hidden"></div>
+
+        <!-- main -->
+        <div class="flex-1 flex flex-col min-h-screen">
+            <!-- header -->
+            <header class="bg-white border-b border-[#E5F0ED] sticky top-0 z-30">
+                <div class="flex items-center justify-between h-20 px-4 lg:px-8">
+                    <button id="sidebar-toggle" class="lg:hidden text-[#5A7A76] hover:text-[#2D7A6E] p-2">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                    
+                    <div class="flex-1 lg:flex-none">
+                        <h1 class="text-xl lg:text-2xl font-bold text-[#1A3A35]">@yield('page-title', 'Dashboard Admin')</h1>
+                    </div>
+
+                    <div class="flex items-center gap-4">
+                        <div class="hidden lg:flex items-center gap-2 px-4 py-2 bg-[#F0F8F6] rounded-full">
+                            <div class="w-2 h-2 bg-[#52C77B] rounded-full animate-pulse"></div>
+                            <span class="text-sm font-medium text-[#1A3A35]">{{ Auth::user()->name }}</span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <!-- content -->
+            <main class="flex-1 p-4 lg:p-8">
+                <!-- if session -->
+                @if(session('success'))
+                    <div class="mb-6 p-4 bg-[#E8F5E9] border border-[#52C77B] text-[#2E7D32] rounded-xl flex items-start gap-3">
+                        <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                        <p class="text-sm font-medium">{{ session('success') }}</p>
+                    </div>
+                @endif
+
+                <!-- else -->
+                @if($errors->any())
+                    <div class="mb-6 p-4 bg-[#FDEAEA] border border-[#E85D5D] text-[#D44545] rounded-xl">
+                        <div class="flex items-start gap-3">
+                            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                            <div class="text-sm">
+                                <ul class="list-disc list-inside space-y-1">
+                                    @foreach($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                @endif
+
+                @yield('content')
+            </main>
+        </div>
+    </div>
+
+    <!-- js script -->
+    <script>
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebarClose = document.getElementById('sidebar-close');
+        const sidebarOverlay = document.getElementById('sidebar-overlay');
+
+        function openSidebar() {
+            sidebar.classList.remove('-translate-x-full');
+            sidebarOverlay.classList.remove('hidden');
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add('-translate-x-full');
+            sidebarOverlay.classList.add('hidden');
+        }
+
+        sidebarToggle.addEventListener('click', openSidebar);
+        sidebarClose.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar);
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth >= 1024) {
+                sidebarOverlay.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
