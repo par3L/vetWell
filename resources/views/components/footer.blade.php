@@ -46,7 +46,7 @@
             <div>
                 <h3 class="text-lg font-heading font-semibold mb-4">Services</h3>
                 <ul class="space-y-3">
-                    <li><a href="#services" class="text-neutral-400 hover:text-secondary-400 transition-colors duration-200">General Checkup</a></li>
+                    <li><a href="{{ route('landing') }}" class="text-neutral-400 hover:text-secondary-400 transition-colors duration-200">General Checkup</a></li>
                     <li><a href="#services" class="text-neutral-400 hover:text-secondary-400 transition-colors duration-200">Vaccination</a></li>
                     <li><a href="#services" class="text-neutral-400 hover:text-secondary-400 transition-colors duration-200">Surgery</a></li>
                     <li><a href="#services" class="text-neutral-400 hover:text-secondary-400 transition-colors duration-200">Emergency Care</a></li>
