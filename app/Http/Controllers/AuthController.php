@@ -11,13 +11,15 @@ use Illuminate\Support\Facades\Validator;
 class AuthController extends Controller
 {
     /**
-     * Show the login form.
+     * show login form.
      */
     public function showLogin()
     {
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->role === 'dokter') {
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->role === 'dokter') {
                 return redirect()->route('doctor.dashboard');
             }
             return redirect()->route('dashboard.index');
@@ -26,13 +28,15 @@ class AuthController extends Controller
     }
 
     /**
-     * Show the register form.
+     * show register form.
      */
     public function showRegister()
     {
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->role === 'dokter') {
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->role === 'dokter') {
                 return redirect()->route('doctor.dashboard');
             }
             return redirect()->route('dashboard.index');
@@ -41,7 +45,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Handle login request.
+     * handle request login.
      */
     public function login(Request $request)
     {
@@ -55,8 +59,10 @@ class AuthController extends Controller
 
             $user = Auth::user();
             
-            // Redirect based on user role
-            if ($user->role === 'dokter') {
+            // segway
+            if ($user->role === 'admin') {
+                return redirect()->intended(route('admin.dashboard'))->with('success', 'Selamat datang kembali, Admin!');
+            } elseif ($user->role === 'dokter') {
                 return redirect()->intended(route('doctor.dashboard'))->with('success', 'Selamat datang kembali, Dr. ' . $user->name . '!');
             }
             
@@ -69,7 +75,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Handle registration request.
+     * handle regis.
      */
     public function register(Request $request)
     {
@@ -97,7 +103,7 @@ class AuthController extends Controller
     }
 
     /**
-     * Handle logout request.
+     * handle logout request.
      */
     public function logout(Request $request)
     {

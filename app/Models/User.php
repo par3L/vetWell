@@ -11,8 +11,8 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     /** @use HasFactory<\Database\Factories\UserFactory> */
-    // trait untuk API authentication menggunakan laravel sanctum
-    // trait ini memungkinkan user untuk generate token untuk akses API
+    // trait API authentication menggunakan laravel sanctum
+    // untuk generate token untuk akses API
     use HasFactory, Notifiable, HasApiTokens;
 
     /**
@@ -25,6 +25,10 @@ class User extends Authenticatable
         'email',
         'password',
         'phone',
+        'show_in_team',
+        'position',
+        'bio',
+        'photo',
     ];
 
     /**
@@ -48,5 +52,13 @@ class User extends Authenticatable
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
         ];
+    }
+    
+    /**
+     * relasi user --> doctor
+     */
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::class);
     }
 }

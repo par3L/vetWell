@@ -72,12 +72,10 @@ class PetController extends Controller
             'photo.max' => 'Ukuran foto maksimal 2MB',
         ]);
 
-        // proses upload foto
+        // proses upload foto ke storage/pet-photos
+        $photoPath = null;
         if ($request->hasFile('photo')) {
-            $photo = $request->file('photo');
-            $photoName = time() . '_' . $photo->getClientOriginalName();
-            $photo->move(public_path('assets/pets'), $photoName);
-            $photoPath = 'assets/pets/' . $photoName;
+            $photoPath = $request->file('photo')->store('pet-photos', 'public');
         }
 
         // simpan data ke database
@@ -149,15 +147,12 @@ class PetController extends Controller
         // jika ada foto baru diupload
         if ($request->hasFile('photo')) {
             // hapus foto lama jika ada
-            if ($pet->photo && file_exists(public_path($pet->photo))) {
-                unlink(public_path($pet->photo));
+            if ($pet->photo) {
+                Storage::disk('public')->delete($pet->photo);
             }
             
-            // upload foto baru
-            $photo = $request->file('photo');
-            $photoName = time() . '_' . $photo->getClientOriginalName();
-            $photo->move(public_path('assets/pets'), $photoName);
-            $validateData['photo'] = 'assets/pets/' . $photoName;
+            // upload foto baru ke storage/pet-photos
+            $validateData['photo'] = $request->file('photo')->store('pet-photos', 'public');
         }
 
         // update data di database
@@ -180,8 +175,8 @@ class PetController extends Controller
         }
         
         // hapus foto jika ada
-        if ($pet->photo && file_exists(public_path($pet->photo))) {
-            unlink(public_path($pet->photo));
+        if ($pet->photo) {
+            Storage::disk('public')->delete($pet->photo);
         }
         
         // hapus data dari database

@@ -9,6 +9,9 @@ class Service extends Model
 {
     protected $fillable = [
         'name',
+        'category',
+        'icon',
+        'tag',
         'description',
         'price',
     ];

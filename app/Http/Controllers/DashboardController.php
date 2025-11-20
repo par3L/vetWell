@@ -10,6 +10,8 @@ use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class DashboardController extends Controller
 {
@@ -277,5 +279,75 @@ class DashboardController extends Controller
         $transaction->update(['status' => 'paid']);
         
         return back()->with('success', 'Pembayaran berhasil! Terima kasih.');
+    }
+
+    /**
+     * menampilkan halaman edit profile user
+     */
+    public function profile()
+    {
+        return view('dashboard.profile');
+    }
+
+    /**
+     * update profile user termasuk foto, nama, email, dan telepon
+     */
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
+
+        // validasi input
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'phone' => 'nullable|string|max:20',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+        ]);
+
+        // handle upload foto jika ada
+        if ($request->hasFile('photo')) {
+            // hapus foto lama jika ada
+            if ($user->photo) {
+                Storage::disk('public')->delete($user->photo);
+            }
+            // simpan foto baru
+            $validated['photo'] = $request->file('photo')->store('user-photos', 'public');
+        }
+
+        // update data user di database
+        $user->update($validated);
+
+        return back()->with('success', 'Profile berhasil diperbarui!');
+    }
+
+    /**
+     * update password user
+     */
+    public function updatePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        // validasi input
+        $validated = $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8|confirmed',
+        ], [
+            'current_password.required' => 'Password lama wajib diisi.',
+            'new_password.required' => 'Password baru wajib diisi.',
+            'new_password.min' => 'Password baru minimal 8 karakter.',
+            'new_password.confirmed' => 'Konfirmasi password tidak cocok.',
+        ]);
+
+        // verifikasi password lama
+        if (!Hash::check($validated['current_password'], $user->password)) {
+            return back()->withErrors(['current_password' => 'Password lama tidak sesuai.']);
+        }
+
+        // update password di database
+        $user->update([
+            'password' => Hash::make($validated['new_password']),
+        ]);
+
+        return back()->with('success', 'Password berhasil diperbarui!');
     }
 }

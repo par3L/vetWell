@@ -9,17 +9,20 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class DoctorAuthController extends Controller
 {
     /**
-     * Show the doctor registration form.
+     * show form regis
      */
     public function showRegister()
     {
         if (Auth::check()) {
             $user = Auth::user();
-            if ($user->role === 'dokter') {
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.dashboard');
+            } elseif ($user->role === 'dokter') {
                 return redirect()->route('doctor.dashboard');
             }
             return redirect()->route('dashboard.index');
@@ -28,7 +31,7 @@ class DoctorAuthController extends Controller
     }
 
     /**
-     * Handle doctor registration request.
+     * handle request regis.
      */
     public function register(Request $request)
     {
@@ -52,7 +55,7 @@ class DoctorAuthController extends Controller
         try {
             DB::beginTransaction();
 
-            // Create user account
+            // create account
             $user = User::create([
                 'name' => $request->name,
                 'email' => $request->email,
@@ -61,16 +64,13 @@ class DoctorAuthController extends Controller
                 'role' => 'dokter',
             ]);
 
-            // Handle photo upload
+            // handle upload foto ke storage/doc-photos
             $photoPath = null;
             if ($request->hasFile('photo')) {
-                $photo = $request->file('photo');
-                $photoName = time() . '_' . $photo->getClientOriginalName();
-                $photo->move(public_path('assets/doctors'), $photoName);
-                $photoPath = 'assets/doctors/' . $photoName;
+                $photoPath = $request->file('photo')->store('doc-photos', 'public');
             }
 
-            // Create doctor profile
+            // create profile
             Doctor::create([
                 'user_id' => $user->id,
                 'name' => $request->name,

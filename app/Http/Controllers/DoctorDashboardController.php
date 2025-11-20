@@ -10,6 +10,8 @@ use App\Models\TransactionDetail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class DoctorDashboardController extends Controller
 {
@@ -209,5 +211,93 @@ class DoctorDashboardController extends Controller
         $appointment->update(['status' => 'confirmed']);
         
         return back()->with('success', 'Janji temu berhasil dikonfirmasi.');
+    }
+
+    /**
+     * menampilkan halaman edit profile dokter
+     */
+    public function profile()
+    {
+        return view('doctor.profile');
+    }
+
+    /**
+     * update profile dokter termasuk foto, nama, email, telepon, dan info dokter
+     */
+    public function updateProfile(Request $request)
+    {
+        $user = Auth::user();
+        $doctor = Doctor::where('user_id', $user->id)->firstOrFail();
+
+        // validasi input
+        $validated = $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|unique:users,email,' . $user->id,
+            'phone' => 'nullable|string|max:20',
+            'photo' => 'nullable|image|mimes:jpeg,png,jpg|max:2048',
+            'spesialisasi' => 'nullable|string|max:255',
+            'position' => 'nullable|string|max:255',
+        ]);
+
+        // handle upload foto jika ada
+        if ($request->hasFile('photo')) {
+            // hapus foto lama jika ada
+            if ($doctor->photo) {
+                Storage::disk('public')->delete($doctor->photo);
+            }
+            // simpan foto baru ke folder doc-photos
+            $photoPath = $request->file('photo')->store('doc-photos', 'public');
+            
+            // update foto di tabel doctors
+            $doctor->update(['photo' => $photoPath]);
+        }
+
+        // update data user di database
+        $user->update([
+            'name' => $validated['name'],
+            'email' => $validated['email'],
+            'phone' => $validated['phone'],
+        ]);
+
+        // update data doctor di database
+        $doctor->update([
+            'name' => $validated['name'],
+            'phone' => $validated['phone'],
+            'spesialisasi' => $validated['spesialisasi'] ?? $doctor->spesialisasi,
+            'position' => $validated['position'] ?? $doctor->position,
+        ]);
+
+        return back()->with('success', 'Profile berhasil diperbarui!');
+    }
+
+    /**
+     * update password dokter
+     */
+    public function updatePassword(Request $request)
+    {
+        $user = Auth::user();
+
+        // validasi input
+        $validated = $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:8|confirmed',
+        ], [
+            'current_password.required' => 'Password lama wajib diisi.',
+            'new_password.required' => 'Password baru wajib diisi.',
+            'new_password.min' => 'Password baru minimal 8 karakter.',
+            'new_password.confirmed' => 'Konfirmasi password tidak cocok.',
+        ]);
+
+        // verifikasi password lama
+        if (!Hash::check($validated['current_password'], $user->password)) {
+            return back()->withErrors(['current_password' => 'Password lama tidak sesuai.']);
+        }
+
+        // update password di database
+        $user->update([
+            'password' => Hash::make($validated['new_password']),
+        ]);
+
+        return back()->with('success', 'Password berhasil diperbarui!');
     }
 }
