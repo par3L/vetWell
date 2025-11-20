@@ -19,10 +19,11 @@ class Doctor extends Model
         'experience_years',
         'bio',
         'photo',
+        'show_in_team',
     ];
 
     /**
-     * Relationship dengan User
+     * relationship dengan User
      */
     public function user()
     {
