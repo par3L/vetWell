@@ -15,7 +15,7 @@
 <body class="antialiased font-sans text-neutral-800">
     <x-navbar />
 
-    <!-- hero section -->
+    <!-- hero2 section -->
     <section class="relative bg-gradient-to-br from-[#F0F8F6] via-white to-[#FFF5EC] overflow-hidden pt-32 pb-20">
         <div class="absolute inset-0 opacity-20">
             <div class="absolute top-20 left-10 w-64 h-64 bg-[#2D7A6E] rounded-full blur-3xl"></div>
@@ -43,7 +43,7 @@
         </div>
     </section>
 
-    <!-- Main Services -->
+    <!-- main services-->
     <section class="py-16 lg:py-20 bg-white">
         <div class="container-custom">
             <div class="text-center max-w-3xl mx-auto mb-16">
@@ -62,7 +62,7 @@
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1: Konsultasi Umum -->
+                <!-- service 1: Konsultasi Umum -->
                 <div class="group bg-gradient-to-br from-white to-[#F0F8F6] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#2D7A6E] hover:-translate-y-2">
                     <div class="w-16 h-16 bg-gradient-to-br from-[#2D7A6E] to-[#1F5951] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -95,7 +95,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 2: Vaksinasi -->
+                <!-- service 2: Vaksinasi -->
                 <div class="group bg-gradient-to-br from-white to-[#FFF5EC] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#FFB088] hover:-translate-y-2">
                     <div class="w-16 h-16 bg-gradient-to-br from-[#FFB088] to-[#FF8F5B] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -128,7 +128,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 3: Bedah & Operasi -->
+                <!-- service 3: Bedah & Operasi -->
                 <div class="group bg-gradient-to-br from-white to-[#EFF7FC] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#4A9FD8] hover:-translate-y-2">
                     <div class="w-16 h-16 bg-gradient-to-br from-[#4A9FD8] to-[#357AB8] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -161,7 +161,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 4: Grooming -->
+                <!-- service 4: Grooming -->
                 <div class="group bg-gradient-to-br from-white to-[#EDFAF2] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#52C77B] hover:-translate-y-2">
                     <div class="w-16 h-16 bg-gradient-to-br from-[#52C77B] to-[#3DA85F] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -194,7 +194,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 5: Rawat Inap -->
+                <!-- service 5: Rawat Inap -->
                 <div class="group bg-gradient-to-br from-white to-[#FFF8ED] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#FFA94D] hover:-translate-y-2">
                     <div class="w-16 h-16 bg-gradient-to-br from-[#FFA94D] to-[#FF8F33] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -227,7 +227,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 6: Pemeriksaan Lab -->
+                <!-- service 6: Pemeriksaan Lab -->
                 <div class="group bg-gradient-to-br from-white to-[#FDEAEA] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#E85D5D] hover:-translate-y-2">
                     <div class="w-16 h-16 bg-gradient-to-br from-[#E85D5D] to-[#D44545] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -260,7 +260,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 7: Radiologi & Imaging -->
+                <!-- service 7: Radiologi & Imaging -->
                 <div class="group bg-gradient-to-br from-white to-[#F0F8F6] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#2D7A6E] hover:-translate-y-2">
                     <div class="w-16 h-16 bg-gradient-to-br from-[#2D7A6E] to-[#1F5951] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -293,7 +293,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 8: Perawatan Gigi -->
+                <!-- service 8: Perawatan Gigi -->
                 <div class="group bg-gradient-to-br from-white to-[#FFF5EC] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#FFB088] hover:-translate-y-2">
                     <div class="w-16 h-16 bg-gradient-to-br from-[#FFB088] to-[#FF8F5B] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -326,7 +326,7 @@
                     </ul>
                 </div>
 
-                <!-- Service 9: Layanan Darurat -->
+                <!-- service 9: Layanan Darurat -->
                 <div class="group bg-gradient-to-br from-white to-[#FDEAEA] p-8 rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 border-2 border-[#E5F0ED] hover:border-[#E85D5D] hover:-translate-y-2">
                     <div class="w-16 h-16 bg-gradient-to-br from-[#E85D5D] to-[#D44545] rounded-2xl flex items-center justify-center text-white mb-6 group-hover:scale-110 group-hover:rotate-3 transition-transform duration-300">
                         <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -362,7 +362,7 @@
         </div>
     </section>
 
-    <!-- CTA Section -->
+    <!-- CTA  -->
     <section class="py-16 lg:py-20 bg-gradient-to-br from-[#2D7A6E] to-[#1F5951] relative overflow-hidden">
         <div class="absolute inset-0 opacity-10">
             <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl"></div>
