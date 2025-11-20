@@ -15,32 +15,32 @@ class TestUserSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create test user (client)
-        $user = User::create([
-            'name' => 'Test User',
-            'email' => 'user@test.com',
-            'password' => Hash::make('password'),
-            'phone' => '081234567899',
-            'role' => 'klien',
-        ]);
+        // // test user (client)
+        // $user = User::create([
+        //     'name' => 'Test User',
+        //     'email' => 'user@test.com',
+        //     'password' => Hash::make('password'),
+        //     'phone' => '081234567899',
+        //     'role' => 'klien',
+        // ]);
 
-        // Create pets for test user
-        Pet::create([
-            'user_id' => $user->id,
-            'name' => 'Buddy',
-            'species' => 'Dog',
-            'breed' => 'Golden Retriever',
-            'dob' => '2020-05-15',
-            'gender' => 'male',
-        ]);
+        // // pets untuk test user
+        // Pet::create([
+        //     'user_id' => $user->id,
+        //     'name' => 'Buddy',
+        //     'species' => 'Dog',
+        //     'breed' => 'Golden Retriever',
+        //     'dob' => '2020-05-15',
+        //     'gender' => 'male',
+        // ]);
 
-        Pet::create([
-            'user_id' => $user->id,
-            'name' => 'Whiskers',
-            'species' => 'Cat',
-            'breed' => 'Persian',
-            'dob' => '2021-03-20',
-            'gender' => 'female',
-        ]);
+        // Pet::create([
+        //     'user_id' => $user->id,
+        //     'name' => 'Whiskers',
+        //     'species' => 'Cat',
+        //     'breed' => 'Persian',
+        //     'dob' => '2021-03-20',
+        //     'gender' => 'female',
+        // ]);
     }
 }
